@@ -1,0 +1,91 @@
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.App .list-city {
+  margin-top: 50px;
+}
+
+.App .row-city {
+  padding-left: 0;
+}
+
+.App ul li {
+  list-style: none;
+}
+
+.App li a {
+  text-decoration: none;
+}
+
+.App .col-change {
+  padding: 0;
+}
+
+.App .title-city {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.App .col-icon {
+  font-size: 24px;
+  align-self: center;
+}
+
+.App .temperature {
+  font-size: 68px;
+  font-weight: 700;
+}
+
+.App .degree {
+  position: relative;
+  top: -30%;
+  text-decoration: none;
+}
+
+.App .degree:hover {
+  text-decoration: underline;
+}
+
+.App a.celsius span {
+  color: #212529;
+}
+
+.App .col-options {
+  align-self: center;
+}
+
+.App .row-option {
+  text-align: end;
+}
+
+.App .col-card {
+  padding: 0;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.App .card-border {
+  border-color: transparent;
+}
+
+.App .card-day {
+  margin-bottom: 0;
+}
+
+.App .card-icon {
+  text-align: center;
+  font-size: 24px;
+  padding: 8px 0 8px;
+}
+
+.App .card-body p,
+.App .card-body i {
+  opacity: 0.5;
+}
+
+.App .celsius {
+  text-decoration: none;
+}

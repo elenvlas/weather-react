@@ -29,28 +29,31 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
-      <input type="search" placeholder="Enter a city.." onChange={updateCity} />
-      <button type="submit">Search</button>
+    <form className="row g-3" onSubmit={handleSubmit}>
+      <div className="col-5 col-change">
+        <input type="search" placeholder="Enter a city.." onChange={updateCity} className="form-control" /></div>
+      <div className="col-auto col-change"><button type="submit" className="btn btn-primary mb-3">Search</button></div>
+      <div className="col-auto"><button type="submit" className="btn btn-success mb-3">Current
+      </button></div>     
     </form>
   );
 
   if (loaded) {
-    return (
-      <div>
-        {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
-          <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
-        </ul>
-      </div>
-    );
-  } else {
+  //   return (
+  //     <div>
+  //       {form}
+  //       <ul>
+  //         <li>Temperature: {Math.round(weather.temperature)}°C</li>
+  //         <li>Description: {weather.description}</li>
+  //         <li>Humidity: {weather.humidity}%</li>
+  //         <li>Wind: {weather.wind}km/h</li>
+  //         <li>
+  //           <img src={weather.icon} alt={weather.description} />
+  //         </li>
+  //       </ul>
+  //     </div>
+  //   );
+  // } else {
     return form;
   }
 }
