@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import WeatherData from "./WeatherData";
 
 export default function WeatherSearch() {
   const [city, setCity] = useState("");
@@ -9,6 +10,7 @@ export default function WeatherSearch() {
   function showWeather(response) {
     setLoaded(true);
     setWeather({
+      city: response.data.name,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -39,21 +41,64 @@ export default function WeatherSearch() {
   );
 
   if (loaded) {
-  //   return (
-  //     <div>
-  //       {form}
-  //       <ul>
-  //         <li>Temperature: {Math.round(weather.temperature)}°C</li>
-  //         <li>Description: {weather.description}</li>
-  //         <li>Humidity: {weather.humidity}%</li>
-  //         <li>Wind: {weather.wind}km/h</li>
-  //         <li>
-  //           <img src={weather.icon} alt={weather.description} />
-  //         </li>
-  //       </ul>
-  //     </div>
-  //   );
-  // } else {
-    return form;
+    return (
+      <div>
+        {form}
+        <br />
+        <h1 className="title-city">{weather.city}</h1>
+        <WeatherData />
+        <div>{weather.description}</div>
+
+        <div className="text-center">
+          <div className="row">
+            <div className="col-auto col-icon">
+              <img src={weather.icon} alt={weather.description} />
+            </div>
+            <div className="col-auto">
+              <span className="temperature">{Math.round(weather.temperature)}</span>
+              <span className="degree celsius">°С</span>
+            </div>
+            <div className="col-5 col-options">
+              <ul className="row-2">
+                <li className="row-option">
+                  Humidity: <span>{weather.humidity}</span>%
+                </li>
+                <li className="row-option">Wind: <span>{Math.round(weather.wind)}</span> km/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        {form}
+        <br />
+          <h1 className="title-city">Lisbon</h1>
+          <WeatherData />
+          <div>Clouds</div>
+
+          <div className="text-center">
+            <div className="row">
+              <div className="col-auto col-icon">
+                <i className="fa-solid fa-cloud-sun"></i>
+              </div>
+              <div className="col-auto">
+                <span className="temperature">24</span>
+                <span className="degree celsius">°С</span>
+              </div>
+              <div className="col-5 col-options">
+                <ul className="row-2">
+                  <li className="row-option">
+                    Humidity: <span>53</span>%
+                  </li>
+                  <li className="row-option">Wind: <span>12</span>km/h</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    );
   }
 }
